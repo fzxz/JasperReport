@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="bootstrap-4.0.0-alpha.2">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/Загрузки/bootstrap-4.0.0-alpha.2.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+    <jarDirectory url="jar://$USER_HOME$/Загрузки/bootstrap-4.0.0-alpha.2.zip!/" recursive="false" />
+  </library>
+</component>

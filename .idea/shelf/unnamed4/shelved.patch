@@ -1,0 +1,19 @@
+Index: ../topjava05/carsReport/.idea/libraries/bootstrap_4_0_0_alpha_2.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- ../topjava05/carsReport/.idea/libraries/bootstrap_4_0_0_alpha_2.xml	(revision )
++++ ../topjava05/carsReport/.idea/libraries/bootstrap_4_0_0_alpha_2.xml	(revision )
+@@ -0,0 +1,10 @@
++<component name="libraryTable">
++  <library name="bootstrap-4.0.0-alpha.2">
++    <CLASSES>
++      <root url="jar://$USER_HOME$/Загрузки/bootstrap-4.0.0-alpha.2.zip!/" />
++    </CLASSES>
++    <JAVADOC />
++    <SOURCES />
++    <jarDirectory url="jar://$USER_HOME$/Загрузки/bootstrap-4.0.0-alpha.2.zip!/" recursive="false" />
++  </library>
++</component>
+\ No newline at end of file

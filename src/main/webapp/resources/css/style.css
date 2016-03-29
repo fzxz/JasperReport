@@ -1,0 +1,53 @@
+table {
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 5px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+thead {
+    background-color: lightblue;
+    color: darkblue;
+    font-size: 120%;
+    font-weight: lighter;;
+}
+
+th {
+    width: 28%;
+    text-align: left;
+    padding: 2px;
+    border: 1px solid black;
+    font-weight: lighter;
+}
+
+.btn-success {
+    background: lightblue;
+    border-radius: 5px;
+    width: 100%;
+    color: darkblue;
+    font-size: 100%;
+    font-weight: lighter;
+}
+
+.btn-success:hover {
+    background: coral;
+}
+
+.content {
+    font-size: 100%;
+    background-color: white;
+}
+
+.footer {
+    background: linear-gradient(white, lightblue);
+    height: 50px;
+    align-content: center;
+    font-size: small;
+}
+
+.header {
+    background: linear-gradient(lightblue, white);
+    height: 70px;
+    align-content: center;
+    font-size: small;
+}

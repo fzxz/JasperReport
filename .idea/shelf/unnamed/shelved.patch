@@ -1,0 +1,266 @@
+Index: src/main/java/ua/sevenLevelLabs/service/DownloadService.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/main/java/ua/sevenLevelLabs/service/DownloadService.java	(revision )
++++ src/main/java/ua/sevenLevelLabs/service/DownloadService.java	(revision )
+@@ -0,0 +1,11 @@
++package ua.sevenLevelLabs.service;
++
++import net.sf.jasperreports.engine.JRException;
++
++/**
++ * @author Tatiana Marchuk
++ *         29.03.16 : 10:08
++ */
++public interface DownloadService {
++    byte[] downloadPDF(String reportSrcFile, String fileExportPath) throws ClassNotFoundException, JRException;
++}
+Index: .idea/libraries/bootstrap_4_0_0_alpha_2.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/libraries/bootstrap_4_0_0_alpha_2.xml	(revision )
++++ .idea/libraries/bootstrap_4_0_0_alpha_2.xml	(revision )
+@@ -0,0 +1,10 @@
++<component name="libraryTable">
++  <library name="bootstrap-4.0.0-alpha.2">
++    <CLASSES>
++      <root url="jar://$USER_HOME$/Загрузки/bootstrap-4.0.0-alpha.2.zip!/" />
++    </CLASSES>
++    <JAVADOC />
++    <SOURCES />
++    <jarDirectory url="jar://$USER_HOME$/Загрузки/bootstrap-4.0.0-alpha.2.zip!/" recursive="false" />
++  </library>
++</component>
+\ No newline at end of file
+Index: ../../../../.IntelliJIdea15/config/consoles/db/6992157d-a7d4-4322-bc6c-2511cf865853/console.sql
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- ../../../../.IntelliJIdea15/config/consoles/db/6992157d-a7d4-4322-bc6c-2511cf865853/console.sql	(revision )
++++ ../../../../.IntelliJIdea15/config/consoles/db/6992157d-a7d4-4322-bc6c-2511cf865853/console.sql	(revision )
+@@ -0,0 +1,1 @@
++
+\ No newline at end of file
+Index: src/main/java/ua/sevenLevelLabs/service/DownloadServiceImpl.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/main/java/ua/sevenLevelLabs/service/DownloadServiceImpl.java	(revision )
++++ src/main/java/ua/sevenLevelLabs/service/DownloadServiceImpl.java	(revision )
+@@ -0,0 +1,73 @@
++package ua.sevenLevelLabs.service;
++
++
++/**
++ * @author Tatiana Marchuk
++ * 17.03.16 : 21:43
++ */
++
++import net.sf.jasperreports.engine.*;
++import net.sf.jasperreports.engine.export.JRPdfExporter;
++import net.sf.jasperreports.export.*;
++import org.hibernate.annotations.common.util.impl.LoggerFactory;
++import org.jboss.logging.Logger;
++import org.springframework.beans.factory.annotation.Autowired;
++import org.springframework.context.annotation.ComponentScan;
++import org.springframework.stereotype.Service;
++import org.springframework.transaction.annotation.Transactional;
++import ua.sevenLevelLabs.repository.CarDao;
++
++import java.io.*;
++import java.nio.file.Files;
++import java.nio.file.Path;
++import java.nio.file.Paths;
++import java.sql.Connection;
++import java.util.HashMap;
++import java.util.Map;
++
++
++/**
++ * Service for processing Jasper  reports
++ */
++@Service("downloadService")
++@Transactional
++@ComponentScan("ua.sevenLevelLabs.repository")
++public class DownloadServiceImpl implements DownloadService {
++
++    protected static Logger logger = LoggerFactory.logger(DownloadServiceImpl.class);
++
++    @Autowired
++    private CarDao carDao;
++
++    public byte[] downloadPDF(String reportSrcFile, String fileExportPath) throws ClassNotFoundException, JRException {
++
++        JasperReport jasperReport = JasperCompileManager.compileReport(reportSrcFile);
++        Map<String, Object> parameters = new HashMap<String, Object>();
++        Connection connection = carDao.getConnection();
++        JasperPrint print = JasperFillManager.fillReport(jasperReport, parameters, connection);
++        JRPdfExporter exporter = new JRPdfExporter();
++        ExporterInput exporterInput = new SimpleExporterInput(print);
++        exporter.setExporterInput(exporterInput);
++        OutputStreamExporterOutput exporterOutput = new SimpleOutputStreamExporterOutput(fileExportPath);
++        exporter.setExporterOutput(exporterOutput);
++        SimplePdfExporterConfiguration configuration = new SimplePdfExporterConfiguration();
++        exporter.setConfiguration(configuration);
++        exporter.exportReport();
++        byte[] data = readFile(fileExportPath);
++        logger.info("File " + reportSrcFile + " downloaded to pdf" + new File(fileExportPath).length() + " Data length = " + data.length);
++        return data;
++    }
++
++
++    public byte[] readFile(String filePath) {
++        Path path = Paths.get(filePath);
++        byte[] data = new byte[0];
++        try {
++            data = Files.readAllBytes(path);
++        } catch (IOException e) {
++            e.printStackTrace();
++        }
++        logger.info("File " + filePath + " readed and has " + data.length + " bytes.");
++        return data;
++    }
++}
+Index: ../../../../.IntelliJIdea15/config/options/baseRefactoring.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- ../../../../.IntelliJIdea15/config/options/baseRefactoring.xml	(revision )
++++ ../../../../.IntelliJIdea15/config/options/baseRefactoring.xml	(revision )
+@@ -0,0 +1,5 @@
++<application>
++  <component name="BaseRefactoringSettings">
++    <option name="SAFE_DELETE_WHEN_DELETE" value="false" />
++  </component>
++</application>
+\ No newline at end of file
+Index: .idea/dataSources.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/dataSources.xml	(revision )
++++ .idea/dataSources.xml	(revision )
+@@ -0,0 +1,11 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="DataSourceManagerImpl" format="xml" hash="1007416785">
++    <data-source source="LOCAL" name="H2 - jdbc:h2:tcp://localhost:9092/jdbc:h2:~/test" uuid="3b18a199-b7c0-4671-98e4-97cfb1336dd1">
++      <driver-ref>h2.unified</driver-ref>
++      <synchronize>true</synchronize>
++      <jdbc-driver>org.h2.Driver</jdbc-driver>
++      <jdbc-url>jdbc:h2:jdbc:h2:~/test</jdbc-url>
++    </data-source>
++  </component>
++</project>
+\ No newline at end of file
+Index: ../../../../.IntelliJIdea15/config/consoles/db/0677cd97-4132-4e84-9cdf-f404eacc9de3/console.sql
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- ../../../../.IntelliJIdea15/config/consoles/db/0677cd97-4132-4e84-9cdf-f404eacc9de3/console.sql	(revision )
++++ ../../../../.IntelliJIdea15/config/consoles/db/0677cd97-4132-4e84-9cdf-f404eacc9de3/console.sql	(revision )
+@@ -0,0 +1,1 @@
++
+\ No newline at end of file
+Index: ../../../../.IntelliJIdea15/config/consoles/.history/db/3b18a199-b7c0-4671-98e4-97cfb1336dd1.sql
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- ../../../../.IntelliJIdea15/config/consoles/.history/db/3b18a199-b7c0-4671-98e4-97cfb1336dd1.sql	(revision )
++++ ../../../../.IntelliJIdea15/config/consoles/.history/db/3b18a199-b7c0-4671-98e4-97cfb1336dd1.sql	(revision )
+@@ -0,0 +1,32 @@
++CREATE TABLE car (
++  id    INTEGER AUTO_INCREMENT,
++  name  VARCHAR(10),
++  model VARCHAR(50),
++  year  INTEGER(4),
++  price INTEGER(4),
++  PRIMARY KEY (id)
++)
++;-- -. . -..- - / . -. - .-. -.--
++INSERT INTO car (name, model, year, price) VALUES ('Fiat', 'Linea', '2012', '320000')
++;-- -. . -..- - / . -. - .-. -.--
++INSERT INTO car (name, model, year, price) VALUES ('Fiat', '124 Spider', '2015', '1000000')
++;-- -. . -..- - / . -. - .-. -.--
++INSERT INTO car (name, model, year, price) VALUES ('Fiat', '500', '2015', '412000')
++;-- -. . -..- - / . -. - .-. -.--
++INSERT INTO car (name, model, year, price) VALUES ('Fiat', '500L Trekking', '2012', '540000')
++;-- -. . -..- - / . -. - .-. -.--
++INSERT INTO car (name, model, year, price) VALUES ('Fiat', 'Doblo', '2009', '480000')
++;-- -. . -..- - / . -. - .-. -.--
++INSERT INTO car (name, model, year, price) VALUES ('Fiat', 'Doblo Cargo', '2014', '360000')
++;-- -. . -..- - / . -. - .-. -.--
++INSERT INTO car (name, model, year, price) VALUES ('Toyota', '4Runner', '2012', '1240000')
++;-- -. . -..- - / . -. - .-. -.--
++INSERT INTO car (name, model, year, price) VALUES ('Toyota', 'Alphard', '2015', '800000')
++;-- -. . -..- - / . -. - .-. -.--
++INSERT INTO car (name, model, year, price) VALUES ('Toyota', 'Auris Hybrid ', '2015', '707000')
++;-- -. . -..- - / . -. - .-. -.--
++INSERT INTO car (name, model, year, price) VALUES ('Toyota', 'Auris Touring Sports ', '2012', '940000')
++;-- -. . -..- - / . -. - .-. -.--
++INSERT INTO car (name, model, year, price) VALUES ('Toyota', 'Corolla ', '2013', '400000')
++;-- -. . -..- - / . -. - .-. -.--
++INSERT INTO car (name, model, year, price) VALUES ('Toyota', 'Highlander ', '2013', '1800000')
+\ No newline at end of file
+Index: ../../../../.IntelliJIdea15/config/consoles/db/3b18a199-b7c0-4671-98e4-97cfb1336dd1/console.sql
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- ../../../../.IntelliJIdea15/config/consoles/db/3b18a199-b7c0-4671-98e4-97cfb1336dd1/console.sql	(revision )
++++ ../../../../.IntelliJIdea15/config/consoles/db/3b18a199-b7c0-4671-98e4-97cfb1336dd1/console.sql	(revision )
+@@ -0,0 +1,13 @@
++INSERT INTO car (name, model, year, price) VALUES ('Fiat', 'Linea', '2012', '320000');
++INSERT INTO car (name, model, year, price) VALUES ('Fiat', '124 Spider', '2015', '1000000');
++INSERT INTO car (name, model, year, price) VALUES ('Fiat', '500', '2015', '412000');
++INSERT INTO car (name, model, year, price) VALUES ('Fiat', '500L Trekking', '2012', '540000');
++INSERT INTO car (name, model, year, price) VALUES ('Fiat', 'Doblo', '2009', '480000');
++INSERT INTO car (name, model, year, price) VALUES ('Fiat', 'Doblo Cargo', '2014', '360000');
++INSERT INTO car (name, model, year, price) VALUES ('Fiat', 'Doblo Cargo', '2014', '360000');
++INSERT INTO car (name, model, year, price) VALUES ('Toyota', '4Runner', '2012', '1240000');
++INSERT INTO car (name, model, year, price) VALUES ('Toyota', 'Alphard', '2015', '800000');
++INSERT INTO car (name, model, year, price) VALUES ('Toyota', 'Auris Hybrid ', '2015', '707000');
++INSERT INTO car (name, model, year, price) VALUES ('Toyota', 'Auris Touring Sports ', '2012', '940000');
++INSERT INTO car (name, model, year, price) VALUES ('Toyota', 'Corolla ', '2013', '400000');
++INSERT INTO car (name, model, year, price) VALUES ('Toyota', 'Highlander ', '2013', '1800000');
+\ No newline at end of file
+Index: src/main/resources/initDB.sql
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/main/resources/initDB.sql	(revision )
++++ src/main/resources/initDB.sql	(revision )
+@@ -0,0 +1,21 @@
++CREATE TABLE car (
++  id    INTEGER AUTO_INCREMENT,
++  name  VARCHAR(10),
++  model VARCHAR(50),
++  year  INTEGER(4),
++  price INTEGER(4),
++  PRIMARY KEY (id)
++);
++INSERT INTO car (name, model, year, price) VALUES ('Fiat', 'Linea', '2012', '320000');
++INSERT INTO car (name, model, year, price) VALUES ('Fiat', '124 Spider', '2015', '1000000');
++INSERT INTO car (name, model, year, price) VALUES ('Fiat', '500', '2015', '412000');
++INSERT INTO car (name, model, year, price) VALUES ('Fiat', '500L Trekking', '2012', '540000');
++INSERT INTO car (name, model, year, price) VALUES ('Fiat', 'Doblo', '2009', '480000');
++INSERT INTO car (name, model, year, price) VALUES ('Fiat', 'Doblo Cargo', '2014', '360000');
++INSERT INTO car (name, model, year, price) VALUES ('Fiat', 'Doblo Cargo', '2014', '360000');
++INSERT INTO car (name, model, year, price) VALUES ('Toyota', '4Runner', '2012', '1240000');
++INSERT INTO car (name, model, year, price) VALUES ('Toyota', 'Alphard', '2015', '800000');
++INSERT INTO car (name, model, year, price) VALUES ('Toyota', 'Auris Hybrid ', '2015', '707000');
++INSERT INTO car (name, model, year, price) VALUES ('Toyota', 'Auris Touring Sports ', '2012', '940000');
++INSERT INTO car (name, model, year, price) VALUES ('Toyota', 'Corolla ', '2013', '400000');
++INSERT INTO car (name, model, year, price) VALUES ('Toyota', 'Highlander ', '2013', '1800000');
+\ No newline at end of file

@@ -1,0 +1,313 @@
+Index: .idea/libraries/Maven__org_webjars_jquery_2_1_4.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/libraries/Maven__org_webjars_jquery_2_1_4.xml	(revision )
++++ .idea/libraries/Maven__org_webjars_jquery_2_1_4.xml	(revision )
+@@ -0,0 +1,13 @@
++<component name="libraryTable">
++  <library name="Maven: org.webjars:jquery:2.1.4">
++    <CLASSES>
++      <root url="jar://$MAVEN_REPOSITORY$/org/webjars/jquery/2.1.4/jquery-2.1.4.jar!/" />
++    </CLASSES>
++    <JAVADOC>
++      <root url="jar://$MAVEN_REPOSITORY$/org/webjars/jquery/2.1.4/jquery-2.1.4-javadoc.jar!/" />
++    </JAVADOC>
++    <SOURCES>
++      <root url="jar://$MAVEN_REPOSITORY$/org/webjars/jquery/2.1.4/jquery-2.1.4-sources.jar!/" />
++    </SOURCES>
++  </library>
++</component>
+\ No newline at end of file
+Index: .idea/libraries/Maven__com_itextpdf_itextpdf_5_5_9.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/libraries/Maven__com_itextpdf_itextpdf_5_5_9.xml	(revision )
++++ .idea/libraries/Maven__com_itextpdf_itextpdf_5_5_9.xml	(revision )
+@@ -0,0 +1,13 @@
++<component name="libraryTable">
++  <library name="Maven: com.itextpdf:itextpdf:5.5.9">
++    <CLASSES>
++      <root url="jar://$MAVEN_REPOSITORY$/com/itextpdf/itextpdf/5.5.9/itextpdf-5.5.9.jar!/" />
++    </CLASSES>
++    <JAVADOC>
++      <root url="jar://$MAVEN_REPOSITORY$/com/itextpdf/itextpdf/5.5.9/itextpdf-5.5.9-javadoc.jar!/" />
++    </JAVADOC>
++    <SOURCES>
++      <root url="jar://$MAVEN_REPOSITORY$/com/itextpdf/itextpdf/5.5.9/itextpdf-5.5.9-sources.jar!/" />
++    </SOURCES>
++  </library>
++</component>
+\ No newline at end of file
+Index: src/main/webapp/resources/css/style.css
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/main/webapp/resources/css/style.css	(revision )
++++ src/main/webapp/resources/css/style.css	(revision )
+@@ -0,0 +1,53 @@
++table {
++    width: 100%;
++    border-collapse: collapse;
++    border-radius: 5px;
++    font-family: 'Times New Roman', Times, serif;
++}
++
++thead {
++    background-color: lightblue;
++    color: darkblue;
++    font-size: 120%;
++    font-weight: lighter;;
++}
++
++th {
++    width: 28%;
++    text-align: left;
++    padding: 2px;
++    border: 1px solid black;
++    font-weight: lighter;
++}
++
++.btn-success {
++    background: lightblue;
++    border-radius: 5px;
++    width: 100%;
++    color: darkblue;
++    font-size: 100%;
++    font-weight: lighter;
++}
++
++.btn-success:hover {
++    background: coral;
++}
++
++.content {
++    font-size: 100%;
++    background-color: white;
++}
++
++.footer {
++    background: linear-gradient(white, lightblue);
++    height: 50px;
++    align-content: center;
++    font-size: small;
++}
++
++.header {
++    background: linear-gradient(lightblue, white);
++    height: 70px;
++    align-content: center;
++    font-size: small;
++}
+\ No newline at end of file
+Index: .idea/libraries/Maven__com_lowagie_itext_2_1_5.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/libraries/Maven__com_lowagie_itext_2_1_5.xml	(revision )
++++ .idea/libraries/Maven__com_lowagie_itext_2_1_5.xml	(revision )
+@@ -0,0 +1,13 @@
++<component name="libraryTable">
++  <library name="Maven: com.lowagie:itext:2.1.5">
++    <CLASSES>
++      <root url="jar://$MAVEN_REPOSITORY$/com/lowagie/itext/2.1.5/itext-2.1.5.jar!/" />
++    </CLASSES>
++    <JAVADOC>
++      <root url="jar://$MAVEN_REPOSITORY$/com/lowagie/itext/2.1.5/itext-2.1.5-javadoc.jar!/" />
++    </JAVADOC>
++    <SOURCES>
++      <root url="jar://$MAVEN_REPOSITORY$/com/lowagie/itext/2.1.5/itext-2.1.5-sources.jar!/" />
++    </SOURCES>
++  </library>
++</component>
+\ No newline at end of file
+Index: .idea/libraries/Maven__commons_fileupload_commons_fileupload_1_3_1.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/libraries/Maven__commons_fileupload_commons_fileupload_1_3_1.xml	(revision )
++++ .idea/libraries/Maven__commons_fileupload_commons_fileupload_1_3_1.xml	(revision )
+@@ -0,0 +1,13 @@
++<component name="libraryTable">
++  <library name="Maven: commons-fileupload:commons-fileupload:1.3.1">
++    <CLASSES>
++      <root url="jar://$MAVEN_REPOSITORY$/commons-fileupload/commons-fileupload/1.3.1/commons-fileupload-1.3.1.jar!/" />
++    </CLASSES>
++    <JAVADOC>
++      <root url="jar://$MAVEN_REPOSITORY$/commons-fileupload/commons-fileupload/1.3.1/commons-fileupload-1.3.1-javadoc.jar!/" />
++    </JAVADOC>
++    <SOURCES>
++      <root url="jar://$MAVEN_REPOSITORY$/commons-fileupload/commons-fileupload/1.3.1/commons-fileupload-1.3.1-sources.jar!/" />
++    </SOURCES>
++  </library>
++</component>
+\ No newline at end of file
+Index: .idea/libraries/Maven__commons_io_commons_io_2_4.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/libraries/Maven__commons_io_commons_io_2_4.xml	(revision )
++++ .idea/libraries/Maven__commons_io_commons_io_2_4.xml	(revision )
+@@ -0,0 +1,13 @@
++<component name="libraryTable">
++  <library name="Maven: commons-io:commons-io:2.4">
++    <CLASSES>
++      <root url="jar://$MAVEN_REPOSITORY$/commons-io/commons-io/2.4/commons-io-2.4.jar!/" />
++    </CLASSES>
++    <JAVADOC>
++      <root url="jar://$MAVEN_REPOSITORY$/commons-io/commons-io/2.4/commons-io-2.4-javadoc.jar!/" />
++    </JAVADOC>
++    <SOURCES>
++      <root url="jar://$MAVEN_REPOSITORY$/commons-io/commons-io/2.4/commons-io-2.4-sources.jar!/" />
++    </SOURCES>
++  </library>
++</component>
+\ No newline at end of file
+Index: src/main/java/ua/sevenLevelLabs/model/Template.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/main/java/ua/sevenLevelLabs/model/Template.java	(revision )
++++ src/main/java/ua/sevenLevelLabs/model/Template.java	(revision )
+@@ -0,0 +1,74 @@
++package ua.sevenLevelLabs.model;
++
++/**
++ * @author Tatiana Marchuk
++ *         17.03.16 : 18:10
++ */
++public class Template {
++    private long length;
++    private String name;
++    private String lastModifiedDate;
++
++    public Template( String name, String lastModifiedDate, long length) {
++        this.length = length;
++        this.name = name;
++        this.lastModifiedDate = lastModifiedDate;
++    }
++
++    public Template() {
++    }
++
++    public long getLength() {
++        return length;
++    }
++
++    public void setLength(long length) {
++        this.length = length;
++    }
++
++    public String getName() {
++        return name;
++    }
++
++    public void setName(String name) {
++        this.name = name;
++    }
++
++    public String getLastModifiedDate() {
++        return lastModifiedDate;
++    }
++
++    public void setLastModifiedDate(String lastModifiedDate) {
++        this.lastModifiedDate = lastModifiedDate;
++    }
++
++    @Override
++    public String toString() {
++        return "Template{" +
++                "length=" + length +
++                ", name='" + name + '\'' +
++                ", lastModifiedDate='" + lastModifiedDate + '\'' +
++                '}';
++    }
++
++    @Override
++    public boolean equals(Object o) {
++        if (this == o) return true;
++        if (!(o instanceof Template)) return false;
++
++        Template template = (Template) o;
++
++        if (getLength() != template.getLength()) return false;
++        if (getName() != null ? !getName().equals(template.getName()) : template.getName() != null) return false;
++        return getLastModifiedDate() != null ? getLastModifiedDate().equals(template.getLastModifiedDate()) : template.getLastModifiedDate() == null;
++
++    }
++
++    @Override
++    public int hashCode() {
++        int result = (int) (getLength() ^ (getLength() >>> 32));
++        result = 31 * result + (getName() != null ? getName().hashCode() : 0);
++        result = 31 * result + (getLastModifiedDate() != null ? getLastModifiedDate().hashCode() : 0);
++        return result;
++    }
++}
+Index: .idea/libraries/Maven__org_codehaus_groovy_groovy_2_4_6.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/libraries/Maven__org_codehaus_groovy_groovy_2_4_6.xml	(revision )
++++ .idea/libraries/Maven__org_codehaus_groovy_groovy_2_4_6.xml	(revision )
+@@ -0,0 +1,13 @@
++<component name="libraryTable">
++  <library name="Maven: org.codehaus.groovy:groovy:2.4.6">
++    <CLASSES>
++      <root url="jar://$MAVEN_REPOSITORY$/org/codehaus/groovy/groovy/2.4.6/groovy-2.4.6.jar!/" />
++    </CLASSES>
++    <JAVADOC>
++      <root url="jar://$MAVEN_REPOSITORY$/org/codehaus/groovy/groovy/2.4.6/groovy-2.4.6-javadoc.jar!/" />
++    </JAVADOC>
++    <SOURCES>
++      <root url="jar://$MAVEN_REPOSITORY$/org/codehaus/groovy/groovy/2.4.6/groovy-2.4.6-sources.jar!/" />
++    </SOURCES>
++  </library>
++</component>
+\ No newline at end of file
+Index: .idea/libraries/Maven__com_h2database_h2_1_4_191.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/libraries/Maven__com_h2database_h2_1_4_191.xml	(revision )
++++ .idea/libraries/Maven__com_h2database_h2_1_4_191.xml	(revision )
+@@ -0,0 +1,13 @@
++<component name="libraryTable">
++  <library name="Maven: com.h2database:h2:1.4.191">
++    <CLASSES>
++      <root url="jar://$MAVEN_REPOSITORY$/com/h2database/h2/1.4.191/h2-1.4.191.jar!/" />
++    </CLASSES>
++    <JAVADOC>
++      <root url="jar://$MAVEN_REPOSITORY$/com/h2database/h2/1.4.191/h2-1.4.191-javadoc.jar!/" />
++    </JAVADOC>
++    <SOURCES>
++      <root url="jar://$MAVEN_REPOSITORY$/com/h2database/h2/1.4.191/h2-1.4.191-sources.jar!/" />
++    </SOURCES>
++  </library>
++</component>
+\ No newline at end of file
+Index: .idea/sqldialects.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/sqldialects.xml	(revision )
++++ .idea/sqldialects.xml	(revision )
+@@ -0,0 +1,6 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="SqlDialectMappings">
++    <file url="file://$PROJECT_DIR$/src/main/resources/initDB.sql" dialect="MySQL" />
++  </component>
++</project>
+\ No newline at end of file

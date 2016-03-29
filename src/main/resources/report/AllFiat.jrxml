@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd"
+              name="AllFiat" pageWidth="612" pageHeight="792" columnWidth="555" leftMargin="20" rightMargin="20"
+              topMargin="20" bottomMargin="20" uuid="57b084d1-9a9d-42cf-827b-289c7bb23329">
+    <property name="ireport.zoom" value="1.0"/>
+    <property name="ireport.x" value="0"/>
+    <property name="ireport.y" value="0"/>
+    <queryString language="SQL">
+        <![CDATA[select all NAME, YEAR, PRICE FROM car where NAME='Fiat']]>
+    </queryString>
+    <field name="NAME" class="java.lang.String">
+        <fieldDescription><![CDATA[]]></fieldDescription>
+    </field>
+    <field name="YEAR" class="java.lang.Integer">
+        <fieldDescription><![CDATA[]]></fieldDescription>
+    </field>
+    <field name="PRICE" class="java.lang.Integer">
+        <fieldDescription><![CDATA[]]></fieldDescription>
+    </field>
+    <group name="PRICE">
+        <groupExpression><![CDATA[$F{PRICE}]]></groupExpression>
+    </group>
+    <background>
+        <band splitType="Stretch"/>
+    </background>
+    <title>
+        <band height="79" splitType="Stretch">
+            <staticText>
+                <reportElement x="0" y="0" width="548" height="66" uuid="7014a423-a963-430e-8f7f-3f370c338fe6"/>
+                <textElement>
+                    <font fontName="Arial" size="36"/>
+                </textElement>
+                <text><![CDATA[Well-known bank's name]]></text>
+            </staticText>
+        </band>
+    </title>
+    <pageHeader>
+        <band height="63" splitType="Stretch">
+            <staticText>
+                <reportElement x="0" y="14" width="548" height="49" uuid="37866700-f9a7-4e29-bb9d-a30ef24b56b9"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font fontName="Arial" size="36" isBold="false"/>
+                </textElement>
+                <text><![CDATA[All Fiat available for sale ]]></text>
+            </staticText>
+        </band>
+    </pageHeader>
+    <columnHeader>
+        <band height="61" splitType="Stretch">
+            <staticText>
+                <reportElement x="211" y="0" width="140" height="61" uuid="77aea1ef-9c3a-4cff-af2a-54326b096a3c"/>
+                <box>
+                    <pen lineWidth="0.75"/>
+                    <topPen lineWidth="0.75"/>
+                    <leftPen lineWidth="0.75"/>
+                    <bottomPen lineWidth="0.75"/>
+                    <rightPen lineWidth="0.75"/>
+                </box>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font fontName="Arial" size="14" isBold="true"/>
+                </textElement>
+                <text><![CDATA[Year]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="61" y="0" width="150" height="61" uuid="7961750e-4d13-4b6b-b999-8597e4f33cd4"/>
+                <box>
+                    <pen lineWidth="0.75"/>
+                    <topPen lineWidth="0.75"/>
+                    <leftPen lineWidth="0.75"/>
+                    <bottomPen lineWidth="0.75"/>
+                    <rightPen lineWidth="0.75"/>
+                </box>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font fontName="Arial" size="14" isBold="true"/>
+                </textElement>
+                <text><![CDATA[Name]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="351" y="0" width="138" height="61" uuid="cbe1a42a-d7a8-461a-ab22-c44aea330142"/>
+                <box>
+                    <pen lineWidth="0.75"/>
+                    <topPen lineWidth="0.75"/>
+                    <leftPen lineWidth="0.75"/>
+                    <bottomPen lineWidth="0.75"/>
+                    <rightPen lineWidth="0.75"/>
+                </box>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font fontName="Arial" size="14" isBold="true"/>
+                </textElement>
+                <text><![CDATA[Price, uah]]></text>
+            </staticText>
+        </band>
+    </columnHeader>
+    <detail>
+        <band height="28" splitType="Stretch">
+            <textField>
+                <reportElement x="61" y="0" width="150" height="28" uuid="31aab89d-4c38-4b46-be71-3f81d4dd7f72"/>
+                <box>
+                    <pen lineWidth="0.75"/>
+                    <topPen lineWidth="0.75"/>
+                    <leftPen lineWidth="0.75"/>
+                    <bottomPen lineWidth="0.75"/>
+                    <rightPen lineWidth="0.75"/>
+                </box>
+                <textElement textAlignment="Center">
+                    <font fontName="Arial" size="12"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{NAME}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="351" y="0" width="138" height="28" uuid="df319e12-05ce-47a0-b4da-16c8bf0be32b"/>
+                <box>
+                    <pen lineWidth="0.75"/>
+                    <topPen lineWidth="0.75"/>
+                    <leftPen lineWidth="0.75"/>
+                    <bottomPen lineWidth="0.75"/>
+                    <rightPen lineWidth="0.75"/>
+                </box>
+                <textElement textAlignment="Center">
+                    <font fontName="Arial" size="12"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{PRICE}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="211" y="0" width="140" height="28" uuid="05ea293d-6e52-49cc-8098-9e636dc4fc2f"/>
+                <box>
+                    <pen lineWidth="0.75"/>
+                    <topPen lineWidth="0.75"/>
+                    <leftPen lineWidth="0.75"/>
+                    <bottomPen lineWidth="0.75"/>
+                    <rightPen lineWidth="0.75"/>
+                </box>
+                <textElement textAlignment="Center">
+                    <font fontName="Arial" size="12"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{YEAR}]]></textFieldExpression>
+            </textField>
+        </band>
+    </detail>
+    <summary>
+        <band height="42" splitType="Stretch">
+            <staticText>
+                <reportElement x="0" y="0" width="572" height="20" uuid="5e669578-84fd-4ff1-a2e6-915a91a492fd"/>
+                <text>
+                    <![CDATA[Responsible for report             _____________________________________________(Name Surname)]]></text>
+            </staticText>
+        </band>
+    </summary>
+</jasperReport>
